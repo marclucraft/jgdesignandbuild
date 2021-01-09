@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    .masonry {
+      column-gap: 1.5em;
+      column-count: 2;
+    }
+    .break-inside {
+      break-inside: avoid;
+    }
+  }
+}

@@ -5,9 +5,10 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    title: `JG Design and Build Ltd.`,
+    description: `Complete Building and Property Development Services`,
+    author: `Marc Lucraft`,
+    authorURL: `https://www.marclucraft.co.uk`
   },
   plugins: [
     `gatsby-plugin-eslint`,
@@ -15,13 +16,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-tailwind`,
-        short_name: `starter`,
+        name: `JG Design and Build Ltd.`,
+        short_name: `JG`,
         start_url: `/`,
         background_color: fullConfig.theme.colors.white,
-        theme_color: fullConfig.theme.colors.green["500"],
+        theme_color: fullConfig.theme.colors.jg["green"],
         display: `minimal-ui`,
-        icon: `src/images/tailwind-icon.png`,
+        icon: `src/images/jg_logo.png`,
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
       },
     },
     {

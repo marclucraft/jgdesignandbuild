@@ -33,7 +33,7 @@ function ContactPage() {
           </label>
 
           <input
-            className="w-full mb-6 rounded-md border-gray-800"
+            className="w-full mb-6 border-gray-800 rounded-md"
             id="first-name"
             placeholder="Bill"
             type="text"
@@ -47,7 +47,7 @@ function ContactPage() {
           </label>
 
           <input
-            className="w-full mb-6 rounded-md border-gray-800"
+            className="w-full mb-6 border-gray-800 rounded-md"
             id="last-name"
             placeholder="Murray"
             type="text"
@@ -61,7 +61,7 @@ function ContactPage() {
           </label>
 
           <textarea
-            className="w-full mb-6 rounded-md border-gray-800"
+            className="w-full mb-6 border-gray-800 rounded-md"
             id="message"
             placeholder="Say something..."
             rows="8"
