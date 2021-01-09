@@ -4,6 +4,7 @@
   "version": "1",
   "author": "Marc Lucraft <hello@marclucraft.co.uk>",
   "dependencies": {
+    "@ccalamos/gatsby-source-googlemaps-static": "^1.4.10",
     "gatsby": "2.29.1",
     "gatsby-plugin-manifest": "2.8.0",
     "gatsby-plugin-offline": "3.7.0",
