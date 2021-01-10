@@ -1,11 +1,40 @@
-import React from "react";
-
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import React, { useState } from "react"
+import axios from "axios"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 import house from '../images/house.jpg'
 
 function ContactPage() {
+  const [, setServerState] = useState({
+    submitting: false,
+    status: null
+  });
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg }
+    });
+    if (ok) {
+      form.reset();
+    }
+  };
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    setServerState({ submitting: true });
+    axios({
+      method: "post",
+      url: "https://getform.io/f/0dbcaaec-6193-432d-aede-c7731ac6c2c4",
+      data: new FormData(form)
+    })
+      .then(() => {
+        handleServerResponse(true, "Thanks!", form);
+      })
+      .catch(r => {
+        handleServerResponse(false, r.response.data.error, form);
+      });
+  };
   return (
     <Layout>
       <SEO
@@ -26,33 +55,33 @@ function ContactPage() {
             </p>
             <img src={house} className="mt-8 w-60" />
           </div>
-          <form className="flex-1 md:ml-12">
+          <form className="flex-1 md:ml-12" onSubmit={handleOnSubmit}>
             <label
               className="block mb-2 text-xs font-bold uppercase"
-              htmlFor="first-name"
+              htmlFor="name"
             >
               First Name
           </label>
 
             <input
               className="w-full mb-6 border-gray-800 rounded-md"
-              id="first-name"
-              placeholder="Joe"
+              name="name"
+              placeholder="Joe Bloggs"
               type="text"
             />
 
             <label
               className="block mb-2 text-xs font-bold uppercase"
-              htmlFor="last-name"
+              htmlFor="Email"
             >
-              Last Name
+              Email
           </label>
 
             <input
               className="w-full mb-6 border-gray-800 rounded-md"
-              id="last-name"
-              placeholder="Bloggs"
-              type="text"
+              name="email"
+              placeholder="joe.bloggs@email.com"
+              type="email"
             />
 
             <label
@@ -64,7 +93,7 @@ function ContactPage() {
 
             <textarea
               className="w-full mb-6 border-gray-800 rounded-md"
-              id="message"
+              name="message"
               placeholder="Say something..."
               rows="8"
             />
