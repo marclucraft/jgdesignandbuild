@@ -46,7 +46,7 @@ function ContactPage() {
         <div className="relative h-0 max-w-full mb-12 overflow-hidden pb-80"><iframe className="absolute top-0 left-0 w-full h-full" src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2480.021056947787!2d0.5654527000000068!3d51.5678475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8c4cd114218a9%3A0x776a824b9f33eb1b!2s33+Spencer+Rd%2C+Benfleet%2C+Essex+SS7!5e0!3m2!1sen!2suk!4v1432848664195' width='600' height='450' frameBorder='0'></iframe></div>
 
         <h1 className="pb-8 text-4xl font-bold">Arrange your free, no-obligation consultation...</h1>
-        <div className="flex">
+        <div className="md:flex">
           <div>
             <p>
               <strong>Office:</strong> 01268 754581<br />
@@ -60,7 +60,7 @@ function ContactPage() {
               className="block mb-2 text-xs font-bold uppercase"
               htmlFor="name"
             >
-              First Name
+              Name
           </label>
 
             <input
